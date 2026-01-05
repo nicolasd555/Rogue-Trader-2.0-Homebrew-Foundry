@@ -50,6 +50,6 @@
   "primaryTokenAttribute": "resources.health",
   "secondaryTokenAttribute": "resources.power",
   "url": "https://github.com/nicolasd555/Rogue-Trader-2.0-Homebrew-Foundry/",
-  "manifest": "https://github.com/nicolasd555/Rogue-Trader-2.0-Homebrew-Foundry/releases/latest/download/module.json",
-  "download": "https://github.com/nicolasd555/Rogue-Trader-2.0-Homebrew-Foundry/releases/download/1.0.0/module.zip"
+  "manifest": "https://github.com/nicolasd555/Rogue-Trader-2.0-Homebrew-Foundry/releases/download/development/system.json",
+  "download": "https://github.com/nicolasd555/Rogue-Trader-2.0-Homebrew-Foundry/releases/download/development/rogue-trader-2.zip"
 }
