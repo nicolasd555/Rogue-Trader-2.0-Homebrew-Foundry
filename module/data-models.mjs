@@ -1,5 +1,8 @@
 const { HTMLField, NumberField, SchemaField, StringField } = foundry.data.fields;
-
+const playercharacter = await playercharacter.implementation.create({
+  name: "Test subject", 
+  description: "This is a new player character"
+});
 /* -------------------------------------------- */
 /*  Actor Models                                */
 /* -------------------------------------------- */
