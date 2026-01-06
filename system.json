@@ -2,7 +2,7 @@
   "id": "rogue-trader-2",
   "title": "Rogue Trader 2",
   "description": "The Rogue Trader system enhanced with improvements from Dark Heresy 2",
-  "version": "0.0.02",
+  "version": "0.0.03",
   "compatibility": {
     "minimum": 13,
     "verified": 13
