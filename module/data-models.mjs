@@ -8,16 +8,11 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     // All Actors have resources.
     return {
+      charactername: new HTMLField(),
+      description: new HTMLField(),
       resources: new SchemaField({
         /// basic info and resources
-        charactername: new HTMLField(),
-        description: new HTMLField(),
-        health: new SchemaField({
-          min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          value: new NumberField({ required: true, integer: true, min: 0, initial: 1 }),
-          max: new NumberField({ required: true, integer: true, min: 0, initial: 100 })
-        }),
-        fate: new SchemaField({
+        wounds: new SchemaField({
           min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
           value: new NumberField({ required: true, integer: true, min: 0, initial: 1 }),
           max: new NumberField({ required: true, integer: true, min: 0, initial: 100 })
@@ -26,13 +21,15 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
           min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
           value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
           max: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
-        }),        
-        movement: new SchemaField({
-          min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          max: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
         }),
+        fate: new SchemaField({
+          min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
+          value: new NumberField({ required: true, integer: true, min: 0, initial: 1 }),
+          max: new NumberField({ required: true, integer: true, min: 0, initial: 100 })
+        }),
+      }),     
         /// characteristics
+      characteristics: new SchemaField({
         weaponskill: new SchemaField({
           min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
           value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
@@ -78,200 +75,367 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
           value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
           max: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
         }),
+      }),
         /// skills
+      skillsvalue: new SchemaField({
         acrobatics: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         acrobatics: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         athletics: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         awareness: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),  
         charm: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         command: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
-        }),
-        command: new StringField({
-          required: true,
-          blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         commerce: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         commonlore: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
-        }),
-        command: new StringField({
-          required: true,
-          blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         deceive: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         dodge: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         forbiddenlore: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         inquiry: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         interrogation: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         intimidate: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         invocation: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         linguistics: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         logic: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         medicae: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         navigate: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         operate: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         parry: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         psyniscience: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         scholasticlore: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         scrutiny: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         security: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
-        selightofhand: new StringField({
+        sleightofhand: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         stealth: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         survival: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         techuse: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
         trade: new StringField({
           required: true,
           blank: false,
-          options: ["untrained (basic)", "untrained (advanced)", "+10%", "+20%"],
-          initial: "untrained (basic)"
+          options: ["untrained", "+10%", "+20%"],
+          initial: "untrained"
         }),
-      })
+      }),
+              /// skills basic/advanced settings
+      skillsbasicswitch: new SchemaField({
+        acrobatics: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        athletics: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "basic"
+        }),
+        awareness: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "basic"
+        }),  
+        charm: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "basic"
+        }),
+        command: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "basic"
+        }),
+        commerce: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        commonlore: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        deceive: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "basic"
+        }),
+        dodge: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "basic"
+        }),
+        forbiddenlore: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        inquiry: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "basic"
+        }),
+        interrogation: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        intimidate: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "basic"
+        }),
+        invocation: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        linguistics: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        logic: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "basic"
+        }),
+        medicae: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        navigate: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        operate: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        parry: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "basic"
+        }),
+        psyniscience: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        scholasticlore: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        scrutiny: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "basic"
+        }),
+        security: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        sleightofhand: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        stealth: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "basic"
+        }),
+        survival: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        techuse: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+        trade: new StringField({
+          required: true,
+          blank: false,
+          options: ["basic", "advanced"],
+          initial: "advanced"
+        }),
+      }),
     };
   }
 }
@@ -297,7 +461,7 @@ export class PlayerCharacterDataModel extends ActorDataModel {
   }
 }
 
-export class NPC extends ActorDataModel {
+export class NPCDataModel extends ActorDataModel {
   static defineSchema() {
     return {
       ...super.defineSchema()
@@ -309,6 +473,7 @@ export class NPC extends ActorDataModel {
 /*  Item Models                                 */
 /* -------------------------------------------- */
 
+/// All items have these fields
 class ItemDataModel extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     return {
@@ -330,46 +495,146 @@ class ItemDataModel extends foundry.abstract.TypeDataModel {
   }
 }
 
-export class RangedWeaponDataModel extends ItemDataModel {
+/// Unused base clase for weaponry
+class WeaponDataModel extends ItemDataModel {
+  static defineSchema() {
+    return {
+        ...super.defineSchema(),
+        class: new StringField({
+          required: true,
+          blank: false,
+          options: ["Pistol", "Basic", "Heavy", "Melee", "Thrown", "Missile"],
+          initial: "Pistol"
+        }),        
+        damage: new HTMLField({
+          required: true,
+          initial: "1d10", // Default value
+          blank: true,
+        }),
+        damagetype: new HTMLField({
+          required: true,
+          blank: false,
+          options: ["Energy", "Explosive", "Rending", "Impact", "Special"],
+        }),
+        range: new NumberField({ required: true, integer: true, nullable: true, min: 0, initial: 0 }),
+        penetration: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
+        special: new HTMLField({
+          required: true,
+          blank: true,
+          options: [""]
+        }),
+        weight: new NumberField({ required: true, integer: true, positive: true, initial: 0 }),
+    };
+  }
+}
+
+/// Only ranged weapons have these qualities
+export class RangedWeaponDataModel extends WeaponDataModel {
   static defineSchema() {
     return {
       ...super.defineSchema(),
-      damagetype: new StringField({
+      type: new StringField({
         required: true,
         blank: false,
-        options: ["Pistol", "Basic", "Heavy"],
-        initial: "Pistol"
+        options: [
+          "Bolt", 
+          "Exotic", 
+          "Flame", 
+          "Las", 
+          "Launcer", 
+          "Melta", 
+          "Plasma", 
+          "Primitive", 
+          "Solid Projectile"
+        ],
+        initial: "Solid Projectile"
       }),
-      damage: new HTMLField({
+    rateoffire: new HTMLField({
+      required: true,
+      blank: false,
+      options: [""]
+    }),
+    clip: new NumberField({ required: true, integer: true, min: 1, initial: 1 }),
+    reload: new HTMLField({
+      required: true,
+      initial: "Half", // Default value
+      nullable: false,
+    }),
+    };
+  }
+}
+
+/// Only melee weapons have these qualities
+export class MeleeWeaponDataModel extends WeaponDataModel {
+  static defineSchema() {
+    return {
+      ...super.defineSchema(),
+      type: new StringField({
         required: true,
-        initial: "1d10", // Default value
+        blank: false,
+        options: [
+          "Chain",
+          "Exotic",
+          "Power",
+          "Primitive", 
+          "Shock",
+        ],
+        initial: "Primitive"
+      }),
+      class: new StringField({
+        required: true,
+        blank: false,
+        options: ["Pistol", "Basic", "Heavy", "Melee", "Thrown", "Missile"],
+        initial: "Melee"
+      }),
+    };
+  }
+}
+
+/// Only grenades have these qualities
+export class GrenadeDataModel extends WeaponDataModel {
+  static defineSchema() {
+    return {
+      ...super.defineSchema(),
+      type: new StringField({
+        required: true,
+        blank: false,
+        initial: "Grenade"
+      }),
+      class: new StringField({
+        required: true,
+        blank: false,
+        initial: "Thrown"
+      }),
+      range: new HTMLField({
+        required: true,
+        initial: "SB*3", // Default value
         nullable: false,
       }),
-      damagetype: new StringField({
-        required: true,
-        blank: false,
-        options: ["Energy", "Explosive", "Rending", "Impact"],
-        initial: "Impact"
-      }),
-      range: new NumberField({ required: true, integer: true, min: 1, initial: 1 }),
-      rateoffire: new StringField({
+      rateoffire: new HTMLField({
         required: true,
         blank: false,
         options: [""]
       }),
-      penetration: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-      clip: new NumberField({ required: true, integer: true, min: 1, initial: 1 }),
-      reload: new HTMLField({
+    };
+  }
+}
+
+/// Only missiles have these qualities
+export class MissileDataModel extends WeaponDataModel {
+  static defineSchema() {
+    return {
+      ...super.defineSchema(),
+      type: new StringField({
         required: true,
-        initial: "Half", // Default value
-        nullable: false,
+        blank: false,
+        initial: "Missile"
       }),
-      special: new StringField({
+      rateoffire: new HTMLField({
         required: true,
         blank: false,
         options: [""]
       }),
-      weight: new NumberField({ required: true, integer: true, positive: true, initial: 0 }),
     };
   }
 }
@@ -387,5 +652,11 @@ export class ArmorDataModel extends ItemDataModel {
       weight: new NumberField({ required: true, integer: true, positive: true, initial: 0 }),
       armorpoints: new NumberField({ required: true, integer: true, positive: true, initial: 0 }),
     };
+  }
+}
+
+export class GearDataModel extends ItemDataModel {
+  static defineSchema() {
+    return { ...super.defineSchema() };
   }
 }
