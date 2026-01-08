@@ -2,7 +2,7 @@
   "id": "rogue-trader-2",
   "title": "Rogue Trader 2",
   "description": "The Rogue Trader system enhanced with improvements from Dark Heresy 2",
-  "version": "0.0.03",
+  "version": "0.0.04",
   "compatibility": {
     "minimum": 13,
     "verified": 13
@@ -13,7 +13,9 @@
     "email": "",
     "discord": "isador555"
   }],
-  "esmodules": ["rogue-trader-2.mjs"],
+  "esmodules": [
+    "module/main.mjs"
+  ],
   "styles": ["styles/system-styles.css"],
   "packs": [{
     "name": "player",
@@ -32,7 +34,12 @@
   }],
   "documentTypes": {
     "Actor": {
-      "player": { "htmlFields": ["background.biography"] },
+      "player": { 
+        "htmlFields": [
+          "header",
+          "origin",
+          "characteristics"
+          ] },
       "npc": { "htmlFields": ["background.biography"] }
     },
     "Item": {
@@ -51,5 +58,5 @@
   "secondaryTokenAttribute": "resources.fate",
   "url": "https://github.com/nicolasd555/Rogue-Trader-2.0-Homebrew-Foundry/",
   "manifest": "https://github.com/nicolasd555/Rogue-Trader-2.0-Homebrew-Foundry/releases/latest/download/system.json",
-  "download": "https://github.com/nicolasd555/Rogue-Trader-2.0-Homebrew-Foundry/releases/download/0.0.02/rogue-trader-2.zip"
+  "download": "https://github.com/nicolasd555/Rogue-Trader-2.0-Homebrew-Foundry/releases/download/0.0.04/rogue-trader-2.zip"
 }
