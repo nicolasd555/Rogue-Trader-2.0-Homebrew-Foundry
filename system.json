@@ -51,9 +51,10 @@
   "initiative": "1d10",
   "grid": {
     "distance": 2,
-    "units": "m"
+    "units": "m",
+    "diagonals": 4
   },
-  "primaryTokenAttribute": "resources.health",
+  "primaryTokenAttribute": "resources.damage",
   "secondaryTokenAttribute": "resources.fate",
   "url": "https://github.com/nicolasd555/Rogue-Trader-2.0-Homebrew-Foundry/",
   "manifest": "https://github.com/nicolasd555/Rogue-Trader-2.0-Homebrew-Foundry/releases/latest/download/system.json",
