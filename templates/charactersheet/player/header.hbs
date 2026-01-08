@@ -1,0 +1,40 @@
+<header class="sheet-header">
+	<ul>
+		<li>
+			<img
+				src="{{actor.img}}"
+				data-action="editImage"
+				data-edit="img"
+				title="{{actor.charactername}}"
+				height="64"
+				width="64"
+			/>
+			<input
+				type="text"
+				name="name"
+				class="large"
+				value="{{actor.charactername}}"
+				placeholder="{{ localize 'Name' }}"
+			/>
+		</li>
+	</ul>
+		<ul>
+		<li>
+			<img
+				src="{{actor.img}}"
+				data-action="editImage"
+				data-edit="img"
+				title="{{actor.playername}}"
+				height="64"
+				width="64"
+			/>
+			<input
+				type="text"
+				name="name"
+				class="large"
+				value="{{actor.playername}}"
+				placeholder="{{ localize 'Player Name' }}"
+			/>
+		</li>
+	</ul>
+</header>
