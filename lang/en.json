@@ -1,0 +1,10 @@
+{
+	"TYPES": {
+		"Actor": {
+			"player": "Player"
+		}
+	},
+    "sheet-names": {
+        "PlayerSheet": "Player Sheet"
+    }
+}

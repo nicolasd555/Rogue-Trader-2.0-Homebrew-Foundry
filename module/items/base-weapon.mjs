@@ -1,5 +1,11 @@
+import { ItemDataModel } from "./base-item.mjs";
+
+const {
+  ArrayField, BooleanField, HTMLField, IntegerSortField, NumberField, SchemaField, SetField, StringField
+} = foundry.data.fields;
+
 /// All weapons use these fields
-class WeaponDataModel extends ItemDataModel {
+export class WeaponDataModel extends ItemDataModel {
   static defineSchema() {
     return {
         ...super.defineSchema(),

@@ -1,20 +1,13 @@
-import { __ID__, filePath } from "../consts.mjs";
-// import { AttributeManager } from "./AttributeManager.mjs";
-// import { attributeSorter } from "../utils/attributeSort.mjs";
-// import { TAFDocumentSheetConfig } from "./TAFDocumentSheetConfig.mjs";
-
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
-const { getProperty } = foundry.utils;
 
 export class PlayerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
+	sheetContext = {};
 	// #region Options
 	static DEFAULT_OPTIONS = {
-		classes: [
-			__ID__,
-			`PlayerSheet`,
-		],
+		
+		classes: ["roguetrader", "sheet", "playersheet"],
 		position: {
 			width: 575,
 			height: 740,
@@ -26,139 +19,66 @@ export class PlayerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 			submitOnChange: true,
 			closeOnSubmit: false,
 		},
-		// actions: {
-		// 	manageAttributes: this.#manageAttributes,
-		// 	configureSheet: this.#configureSheet,
-		// },
+		actions: {
+
+		},
 	};
 
 	static PARTS = {
-		header: { template: filePath(`templates/charactersheet/player/header.hbs`) },
-		origin: { template: filePath(`templates/charactersheet/player/origin.hbs`) },
-		characteristics: { template: filePath(`templates/charactersheet/characteristics.hbs`) },
+		header: { template: "systems/rogue-trader-2/templates/charactersheet/player/header.hbs" },
+		origin: { template: "systems/rogue-trader-2/templates/charactersheet/player/origin.hbs" },
+		characteristics: { template: "systems/rogue-trader-2/templates/charactersheet/characteristics.hbs" },
 	};
-	// #endregion Options
 
-	// #region Lifecycle
-	// _initializeApplicationOptions(options) {
-	// 	const sizing = getProperty(options.document, `flags.${__ID__}.PlayerSheet.size`) ?? {};
+	get title() {
 
-	// 	options.window ??= {};
-	// 	switch (sizing.resizable) {
-	// 		case `false`:
-	// 			options.window.resizable ??= false;
-	// 			break;
-	// 		case `true`:
-	// 			options.window.resizable ??= true;
-	// 			break;
-	// 	};
+		return this.actor.characterName;
+	}
 
-	// 	options.position ??= {};
-	// 	if (sizing.width) {
-	// 		options.position.width ??= sizing.width;
-	// 	};
-	// 	if (sizing.height) {
-	// 		options.position.height ??= sizing.height;
-	// 	};
+    /** @override */
+    _configureRenderOptions(options) {
 
-	// 	return super._initializeApplicationOptions(options);
-	// };
+        super._configureRenderOptions(options);
 
-	// _getHeaderControls() {
-	// 	const controls = super._getHeaderControls();
+        if (this.document.limited) options.parts = ["header"]
+        else options.parts = ["header", "origin", "characteristics"];
+    }
 
-	// 	controls.push({
-	// 		icon: `fa-solid fa-at`,
-	// 		label: `Manage Attributes`,
-	// 		action: `manageAttributes`,
-	// 		visible: () => {
-	// 			const isGM = game.user.isGM;
-	// 			const allowPlayerEdits = game.settings.get(__ID__, `canPlayersManageAttributes`);
-	// 			const editable = this.isEditable;
-	// 			return isGM || (allowPlayerEdits && editable);
-	// 		},
-	// 	});
+	/** 
+	 * @override
+	 * Creates Basic Datamodel, which is used to fill the HTML together with Handelbars with Data
+	 */
+    async _prepareContext(options) {
+        
+        const baseData = await super._prepareContext();
+        
+        let context = {
+    
+            // Set General Values
+            owner: baseData.document.isOwner,
+            editable: baseData.editable,
+            actor: baseData.document,
+            system: baseData.document.system,
+            items: baseData.document.items,
+            config: CONFIG.NETHER,
+            isGM: baseData.user.isGM,
+            effects: baseData.document.effects
+        };
 
-	// 	return controls;
-	// };
+        // context = this.calculateExperiance(context);
+        
+        this.sheetContext = context;
 
-	// async close() {
-	// 	this.#attributeManager?.close();
-	// 	this.#attributeManager = null;
-	// 	return super.close();
-	// };
-	// // #endregion Lifecycle
+        return context;
+    }
 
-	// // #region Data Prep
-	// async _preparePartContext(partID) {
-	// 	let ctx = {
-	// 		actor: this.actor,
-	// 		system: this.actor.system,
-	// 		editable: this.isEditable,
-	// 	};
+	    /** @override */
+    _onRender(context, options) {
 
-	// 	switch (partID) {
-	// 		case `attributes`: {
-	// 			await this._prepareAttributes(ctx);
-	// 			break;
-	// 		};
-	// 		case `content`: {
-	// 			await this._prepareContent(ctx);
-	// 			break;
-	// 		};
-	// 	};
+        const tabs = new foundry.applications.ux.Tabs({navSelector: ".tabs", contentSelector: ".content", initial: "tab1"});
+        tabs.bind(this.element);
 
-	// 	return ctx;
-	// };
-
-	// async _prepareAttributes(ctx) {
-	// 	ctx.hasAttributes = this.actor.system.hasAttributes;
-
-	// 	const attrs = [];
-	// 	for (const [id, data] of Object.entries(this.actor.system.attr)) {
-	// 		attrs.push({
-	// 			...data,
-	// 			id,
-	// 			path: `system.attr.${id}`,
-	// 		});
-	// 	};
-	// 	ctx.attrs = attrs.toSorted(attributeSorter);
-	// };
-
-	// async _prepareContent(ctx) {
-	// 	const TextEditor = foundry.applications.ux.TextEditor.implementation;
-	// 	ctx.enriched = {
-	// 		system: {
-	// 			content: await TextEditor.enrichHTML(this.actor.system.content),
-	// 		},
-	// 	};
-	// };
-	// // #endregion Data Prep
-
-	// // #region Actions
-	// #attributeManager = null;
-	// /** @this {PlayerSheet} */
-	// static async #manageAttributes() {
-	// 	this.#attributeManager ??= new AttributeManager({ document: this.actor });
-	// 	if (this.#attributeManager.rendered) {
-	// 		await this.#attributeManager.bringToFront();
-	// 	} else {
-	// 		await this.#attributeManager.render({ force: true });
-	// 	};
-	// };
-
-	// static async #configureSheet(event) {
-	// 	event.stopPropagation();
-	// 	if ( event.detail > 1 ) { return }
-
-	// 	// const docSheetConfigWidth = TAFDocumentSheetConfig.DEFAULT_OPTIONS.position.width;
-	// 	new TAFDocumentSheetConfig({
-	// 		document: this.document,
-	// 		position: {
-	// 			top: this.position.top + 40,
-	// 			left: this.position.left + ((this.position.width - 60) / 2),
-	// 		},
-	// 	}).render({ force: true });
-	// };
-	// #endregion Actions
+        const tabs2 = new foundry.applications.ux.Tabs({navSelector: ".tabs2", contentSelector: ".content2", initial: "tab2-1"});
+        tabs2.bind(this.element);
+    }
 };
