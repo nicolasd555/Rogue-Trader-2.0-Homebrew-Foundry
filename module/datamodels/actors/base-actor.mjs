@@ -1,22 +1,14 @@
 const { HTMLField, NumberField, SchemaField, StringField } = foundry.data.fields;
-const playercharacter = await playercharacter.implementation.create({
-  name: "Test subject", 
-  description: "This is a new player character"
-});
+
 /* -------------------------------------------- */
 /*  Actor Models                                */
 /* -------------------------------------------- */
 
-class ActorDataModel extends foundry.abstract.TypeDataModel {
+export class ActorDataModel extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     // Actor datamodel setup, all sheets should have this
     return {
-      content: new fields.HTMLField({
-				blank: true,
-				trim: true,
-				initial: ``,
-			}),
-      charactername: new HTMLField(),
+      characterName: new HTMLField(),
       description: new HTMLField(),
       resources: new SchemaField({
         /// basic info and resources
@@ -85,7 +77,7 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
         }),
       }),
         /// skills
-      skillsvalue: new SchemaField({
+      skillsValue: new SchemaField({
         acrobatics: new StringField({
           required: true,
           blank: false,
@@ -128,7 +120,7 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
           options: ["untrained", "+10%", "+20%"],
           initial: "untrained"
         }),
-        commonlore: new StringField({
+        commonLore: new StringField({
           required: true,
           blank: false,
           options: ["untrained", "+10%", "+20%"],
@@ -146,7 +138,7 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
           options: ["untrained", "+10%", "+20%"],
           initial: "untrained"
         }),
-        forbiddenlore: new StringField({
+        forbiddenLore: new StringField({
           required: true,
           blank: false,
           options: ["untrained", "+10%", "+20%"],
@@ -218,7 +210,7 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
           options: ["untrained", "+10%", "+20%"],
           initial: "untrained"
         }),
-        scholasticlore: new StringField({
+        scholasticLore: new StringField({
           required: true,
           blank: false,
           options: ["untrained", "+10%", "+20%"],
@@ -236,7 +228,7 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
           options: ["untrained", "+10%", "+20%"],
           initial: "untrained"
         }),
-        sleightofhand: new StringField({
+        sleightOfHand: new StringField({
           required: true,
           blank: false,
           options: ["untrained", "+10%", "+20%"],
@@ -254,7 +246,7 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
           options: ["untrained", "+10%", "+20%"],
           initial: "untrained"
         }),
-        techuse: new StringField({
+        techUse: new StringField({
           required: true,
           blank: false,
           options: ["untrained", "+10%", "+20%"],
@@ -268,7 +260,7 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
         }),
       }),
               /// skills basic/advanced settings
-      skillsbasicswitch: new SchemaField({
+      skillsBasicSwitch: new SchemaField({
         acrobatics: new StringField({
           required: true,
           blank: false,
@@ -305,7 +297,7 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
           options: ["basic", "advanced"],
           initial: "advanced"
         }),
-        commonlore: new StringField({
+        commonLore: new StringField({
           required: true,
           blank: false,
           options: ["basic", "advanced"],
@@ -323,7 +315,7 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
           options: ["basic", "advanced"],
           initial: "basic"
         }),
-        forbiddenlore: new StringField({
+        forbiddenLore: new StringField({
           required: true,
           blank: false,
           options: ["basic", "advanced"],
@@ -395,7 +387,7 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
           options: ["basic", "advanced"],
           initial: "advanced"
         }),
-        scholasticlore: new StringField({
+        scholasticLore: new StringField({
           required: true,
           blank: false,
           options: ["basic", "advanced"],
@@ -413,7 +405,7 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
           options: ["basic", "advanced"],
           initial: "advanced"
         }),
-        sleightofhand: new StringField({
+        sleightOfHand: new StringField({
           required: true,
           blank: false,
           options: ["basic", "advanced"],
@@ -431,7 +423,7 @@ class ActorDataModel extends foundry.abstract.TypeDataModel {
           options: ["basic", "advanced"],
           initial: "advanced"
         }),
-        techuse: new StringField({
+        techUse: new StringField({
           required: true,
           blank: false,
           options: ["basic", "advanced"],

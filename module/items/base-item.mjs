@@ -1,5 +1,7 @@
+const { HTMLField, NumberField, SchemaField, StringField } = foundry.data.fields;
+
 /// All items have these fields
-class ItemDataModel extends foundry.abstract.TypeDataModel {
+export class ItemDataModel extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     return {
       name: new HTMLField(),

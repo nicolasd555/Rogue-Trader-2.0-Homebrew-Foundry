@@ -1,3 +1,9 @@
+import {WeaponDataModel } from "./base-weapon.mjs";
+
+const {
+  ArrayField, BooleanField, HTMLField, IntegerSortField, NumberField, SchemaField, SetField, StringField
+} = foundry.data.fields;
+
 /// Only ranged weapons have these qualities
 export class RangedWeaponDataModel extends WeaponDataModel {
   static defineSchema() {
