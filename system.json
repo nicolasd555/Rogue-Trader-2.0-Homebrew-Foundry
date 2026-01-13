@@ -42,6 +42,21 @@
     "units": "m",
     "diagonals": 4
   },
+  "documentTypes": {
+    "Actor": {
+      "player": { 
+        "htmlFields": [
+          "header",
+          "origin",
+          "characteristics"
+          ] },
+      "npc": { "htmlFields": ["background.biography"] }
+    },
+    "Item": {
+      "weapon": {},
+      "armor": {}
+    }
+  },
   "primaryTokenAttribute": "resources.damage",
   "secondaryTokenAttribute": "resources.fate",
   "url": "https://github.com/nicolasd555/Rogue-Trader-2.0-Homebrew-Foundry/",
