@@ -5,27 +5,31 @@
 				src="{{actor.img}}"
 				data-action="editImage"
 				data-edit="img"
-				title="{{actor.characterName}}"
+				title="{{system.characterName}}"
 				height="64"
 				width="64"
 			/>
+			<label for="characterName">
+				Character Name
+			</label>
 			<input
 				type="text"
-				name="name"
+				name="system.characterName"
 				class="large"
-				value="{{actor.characterName}}"
-				placeholder="{{ localize 'Name' }}"
+				value="{{system.characterName}}"
 			/>
 		</li>
 	</ul>
 		<ul>
 		<li>
+			<label for="playerName">
+				Player Name
+			</label>
 			<input
 				type="text"
-				name="name"
+				name="system.playerName"
 				class="large"
-				value="{{actor.playerName}}"
-				placeholder="{{ localize 'Player Name' }}"
+				value="{{system.playerName}}"
 			/>
 		</li>
 	</ul>

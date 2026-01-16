@@ -21,8 +21,6 @@ export class RogueTraderActor extends Actor {
     _preparePlayerCharacterData(actorData) {
 
         // Calculation of Base Character Values
-        actorData.characterName = 'test';
-
         this._setCharacterValues(actorData);
     }
 
@@ -39,4 +37,14 @@ export class RogueTraderActor extends Actor {
     set characterName(value) {
         this.system.characterName = value;
     }
+
+    get playerName() {
+        return this.system.characterName;
+    }
+
+    set playerName(value) {
+        this.system.characterName = value;
+    }
+
+    
 }

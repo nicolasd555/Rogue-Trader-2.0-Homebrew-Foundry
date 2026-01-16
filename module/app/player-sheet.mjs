@@ -62,13 +62,11 @@ export class PlayerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
             items: baseData.document.items,
             config: CONFIG.NETHER,
             isGM: baseData.user.isGM,
-            effects: baseData.document.effects
+            effects: baseData.document.effects,
+			characterName: baseData.document.system.characterName
         };
-
-        // context = this.calculateExperiance(context);
         
         this.sheetContext = context;
-
         return context;
     }
 
@@ -80,5 +78,6 @@ export class PlayerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
         const tabs2 = new foundry.applications.ux.Tabs({navSelector: ".tabs2", contentSelector: ".content2", initial: "tab2-1"});
         tabs2.bind(this.element);
+				console.log(this.actor);
     }
 };

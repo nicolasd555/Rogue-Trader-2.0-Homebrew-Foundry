@@ -46,8 +46,8 @@
     "Actor": {
       "player": { 
         "htmlFields": [
-          "header",
-          "origin",
+          "characterName",
+          "playerName",
           "characteristics"
           ] },
       "npc": { "htmlFields": ["background.biography"] }
