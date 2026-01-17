@@ -7,6 +7,7 @@ import { PlayerSheet } from "./app/player-sheet.mjs";
 // Data Models
 import { RogueTraderActor } from "./documents/actors/player.mjs"
 import { PlayerDataModel } from "./datamodels/actors/player.mjs";
+import { NPCDataModel} from "./datamodels/actors/npc.mjs"
 import { RangedWeaponDataModel } from "./items/ranged-weapon.mjs";
 
 Hooks.on(`init`, () => {
@@ -18,33 +19,33 @@ Hooks.on(`init`, () => {
   CONFIG.Actor.documentClass = RogueTraderActor;
 
   CONFIG.ROGUETRADER = ROGUETRADER;
-  CONFIG.INIT = true;
 
   CONFIG.Actor.dataModels = {
-    player: PlayerDataModel
-    // npc: NPCDataModel
+    player: PlayerDataModel,
+    npc: NPCDataModel
   };
 
   CONFIG.Item.dataModels = {
     rangedweapon: RangedWeaponDataModel
   };
 
-    // Register custom Sheets and unregister the start Sheets
-    // Items.unregisterSheet("core", ItemSheet);
+  // Register custom Sheets and unregister the start Sheets
+  // Items.unregisterSheet("core", ItemSheet);
 
-    const DocumentSheetConfig = foundry.applications.apps.DocumentSheetConfig;
-    DocumentSheetConfig.unregisterSheet(Actor, "core", foundry.appv1.sheets.ActorSheet);
-    DocumentSheetConfig.registerSheet(
-      Actor, 
-      "roguetrader", 
-      PlayerSheet, { 
-        types: ["player"], 
-        makeDefault: true, 
-        label: "roguetrader.sheet.playersheet"
-      });
+  const DocumentSheetConfig = foundry.applications.apps.DocumentSheetConfig;
+  DocumentSheetConfig.unregisterSheet(Actor, "core", foundry.appv1.sheets.ActorSheet);
+  DocumentSheetConfig.registerSheet(
+    Actor, 
+    "roguetrader", 
+    PlayerSheet, { 
+      types: ["player"], 
+      type: "player",
+      makeDefault: true, 
+      label: "roguetrader.sheet.playersheet"
+    });
 
 
-      // Configure trackable attributes.
+    // Configure trackable attributes.
   CONFIG.Actor.trackableAttributes = {
     player: {
       bar: [
@@ -72,7 +73,9 @@ Hooks.on(`init`, () => {
 function preloadHandlebarsTemplates() {
 
     const templatePaths = [
-        // "systems/nether/templates/partials/character-sheet-character.hbs",
+        "systems/rogue-trader-2/templates/partials/charactersheet/player/origin.hbs",
+        "systems/rogue-trader-2/templates/partials/charactersheet/characteristics.hbs",
+        "systems/rogue-trader-2/templates/partials/charactersheet/npc/header.hbs",
     ];
     
     return foundry.applications.handlebars.loadTemplates(templatePaths);

@@ -30,51 +30,15 @@ export class ActorDataModel extends foundry.abstract.TypeDataModel {
       }),     
         /// characteristics
       characteristics: new SchemaField({
-        weaponskill: new SchemaField({
-          min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          max: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
-        }),
-        ballisticskill: new SchemaField({
-          min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          max: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
-        }),
-        strength: new SchemaField({
-          min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          max: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
-        }),
-        toughness: new SchemaField({
-          min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          max: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
-        }),
-        agility: new SchemaField({
-          min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          max: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
-        }),
-        intelligence: new SchemaField({
-          min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          max: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
-        }),
-        perception: new SchemaField({
-          min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          max: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
-        }),
-        willpower: new SchemaField({
-          min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          max: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
-        }),
-        fellowship: new SchemaField({
-          min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          max: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
-        }),
+        weaponskill: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 25 }),
+        ballisticskill: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 25 }),
+        strength: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 25 }),
+        toughness: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 25 }),
+        agility: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 25 }),
+        intelligence: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 25 }),
+        perception: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 25 }),
+        willpower: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 25 }),
+        fellowship: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 25 }),
       }),
         /// skills
       skillsValue: new SchemaField({

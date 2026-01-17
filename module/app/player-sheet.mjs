@@ -7,9 +7,9 @@ export class PlayerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 	// #region Options
 	static DEFAULT_OPTIONS = {
 		
-		classes: ["roguetrader", "sheet", "playersheet"],
+		classes: ["rogue-trader", "sheet", "player-sheet"],
 		position: {
-			width: 575,
+			width: 800,
 			height: 740,
 		},
 		window: {
@@ -25,13 +25,11 @@ export class PlayerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 	};
 
 	static PARTS = {
-		header: { template: "systems/rogue-trader-2/templates/charactersheet/player/header.hbs" },
-		origin: { template: "systems/rogue-trader-2/templates/charactersheet/player/origin.hbs" },
-		characteristics: { template: "systems/rogue-trader-2/templates/charactersheet/characteristics.hbs" },
+		header: { template: "systems/rogue-trader-2/templates/charactersheet/header.hbs" },
+		content: { template: "systems/rogue-trader-2/templates/charactersheet/sheet.hbs" }
 	};
 
 	get title() {
-
 		return this.actor.characterName;
 	}
 
@@ -41,7 +39,7 @@ export class PlayerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         super._configureRenderOptions(options);
 
         if (this.document.limited) options.parts = ["header"]
-        else options.parts = ["header", "origin", "characteristics"];
+        else options.parts = ["header", "content"];
     }
 
 	/** 
@@ -62,13 +60,12 @@ export class PlayerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
             items: baseData.document.items,
             config: CONFIG.NETHER,
             isGM: baseData.user.isGM,
-            effects: baseData.document.effects
-        };
-
-        // context = this.calculateExperiance(context);
+            effects: baseData.document.effects,
+			characteristics: baseData.document.system.characteristics,
+        };	
         
+		// this._source.name = this.actor.characterName;
         this.sheetContext = context;
-
         return context;
     }
 
@@ -80,5 +77,6 @@ export class PlayerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
         const tabs2 = new foundry.applications.ux.Tabs({navSelector: ".tabs2", contentSelector: ".content2", initial: "tab2-1"});
         tabs2.bind(this.element);
+				console.log(this.actor);
     }
 };
