@@ -1,8 +1,58 @@
-.roguetrader.sheet.playerSheet .sheet {
-  width: 580px;
-  height: 580px;
+.rogue-trader.sheet.player-sheet {
+  font-family: "Garamond";
+  font-size: 16px;
 }
-.roguetrader.sheet.playerSheet .sheet2 {
-  width: 480px;
-  height: 480px;
+.rogue-trader.sheet.player-sheet .character-image {
+  float: left;
+  width: 120px;
+  height: 150px;
+  position: relative;
+  margin-left: 8px;
+  margin-top: 10px;
+  margin-bottom: 3px;
+  border: 3px #e99d76 solid;
+}
+.rogue-trader.sheet.player-sheet .char-info-box {
+  float: left;
+  width: 69%;
+  height: 100%;
+  padding-top: 20px;
+  padding-left: 10px;
+  margin-left: 8px;
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
+.rogue-trader.sheet.player-sheet .char-name-box {
+  float: left;
+  width: 250px;
+}
+.rogue-trader.sheet.player-sheet .player-name-box {
+  float: right;
+  width: 250px;
+}
+.rogue-trader.sheet.player-sheet .origin-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  width: 300px;
+  height: 250px;
+  position: relative;
+  float: right;
+  margin-right: 20px;
+}
+.rogue-trader.sheet.player-sheet .origin-box input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.rogue-trader.sheet.player-sheet .characteristics-box {
+  float: left;
+  position: relative;
+  width: 300px;
+  overflow: auto;
+  margin-left: 8px;
+  margin-top: 10px;
+  margin-bottom: 3px;
 }

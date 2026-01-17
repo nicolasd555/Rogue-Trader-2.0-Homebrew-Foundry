@@ -1,15 +1,82 @@
 // main: ./roguetrader.less
-.roguetrader.sheet.playerSheet {
+.rogue-trader.sheet.player-sheet {
 
-    //This is the Class for the main Sheet
-    .sheet{
-        width: 580px;
-        height: 580px;
-    };
-    //This is the Class for the second Sheet
-    .sheet2{
-        width: 480px;
-        height: 480px;
+    // CSS for entire sheet
+    font-family: "Garamond";
+    font-size: 16px;
+    
+    // CSS for header
+    .character-image {
+        float: left;
+        width: 120px;
+        height: 150px;
+        position: relative;
+        margin-left: 8px;
+        margin-top: 10px;
+        margin-bottom: 3px;
+        border: 3px #e99d76 solid;
     };
 
+    .char-info-box {
+        float: left;
+        width: 69%;
+        height: 100%;
+        padding-top: 20px;
+        padding-left: 10px;
+        margin-left: 8px;
+        margin-top: 10px;
+        margin-bottom: 3px;
+    };
+    
+    .char-name-box {
+        float: left;
+        width:250px;
+    };
+
+    .player-name-box {
+        float: right;
+        width: 250px;
+    };
+
+    // .char-desc-box {
+    // }
+
+    // Origins
+    .origin-box {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-column-gap: 5px;
+        grid-row-gap: 5px; 
+        width:300px;
+        height:250px;
+        position:relative;
+        float: right; 
+        margin-right: 20px;
+    };
+
+    .origin-box input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+    //characteristics
+
+    .characteristics-box {
+        float: left;
+        position: relative;
+        width: 300px;
+        overflow: auto;
+
+        margin-left: 8px;
+        margin-top: 10px;
+        margin-bottom: 3px;
+        
+    }
+    // .characteristics-box.character-image {
+        
+    //     background-color: antiquewhite;
+    //     width: 60px;
+    //     height: 60px;
+    // }
 }

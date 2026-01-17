@@ -70,29 +70,12 @@ Hooks.on(`init`, () => {
     registerHandlebarsHelpers();  
 });
 
-// Hooks.on("renderCharacterSheet", (app, html, context, options) => {
-//   const doc = app.document;
-
-//   // This is your package ID
-//   const scope = "playerActor";
-
-//   // This can be whatever you want
-//   const key = "update";
-
-//   // The current value. The ?? operator is nullish coalescing
-//   // and fills in the default value if the getFlag return is undefined or null
-//   const defaultValue = "Error";
-//   const value = doc.getFlag(scope, key) ?? defaultValue;
-//   // The name of the input we're constructing
-//   const name = `flags.${scope}.${key}`;
-
-//   const input = foundry.applications.fields.createTextInput({ name, value });
-// });
-
 function preloadHandlebarsTemplates() {
 
     const templatePaths = [
-        // "systems/nether/templates/partials/character-sheet-character.hbs",
+        "systems/rogue-trader-2/templates/partials/charactersheet/player/origin.hbs",
+        "systems/rogue-trader-2/templates/partials/charactersheet/characteristics.hbs",
+        "systems/rogue-trader-2/templates/partials/charactersheet/npc/header.hbs",
     ];
     
     return foundry.applications.handlebars.loadTemplates(templatePaths);

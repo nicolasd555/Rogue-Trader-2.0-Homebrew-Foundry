@@ -1,0 +1,48 @@
+<header class="sheet-header">
+	<div class="character-image">
+		<img
+			src="{{actor.img}}"
+			data-action="editImage"
+			data-edit="img"
+			title="{{system.characterName}}"
+			height="64"
+			width="64"
+		/>
+	</div>
+	<div class="char-info-box">
+		<div class="char-name-box">
+			<label for="characterName">
+				Character Name
+			</label>
+			<input
+				type="text"
+				name="system.characterName"
+				class="large"
+				value="{{system.characterName}}"
+			/>
+		</div>
+		<div class="player-name-box">
+			<label for="playerName">
+				Player Name
+			</label>
+			<input
+				type="text"
+				name="system.playerName"
+				class="large"
+				value="{{system.playerName}}"
+			/>
+		</div>
+
+	<div class="char-desc-box">
+		<label for="description">
+			Description
+		</label>
+		<input
+			type="text"
+			name="system.description"
+			class="large"
+			value="{{system.description}}"
+		/>
+	</div>
+	</div>
+</header>
