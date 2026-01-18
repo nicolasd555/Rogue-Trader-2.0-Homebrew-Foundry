@@ -9,14 +9,14 @@ export class RogueTraderActor extends Actor {
         super.prepareData();
     }
 
-    prepareDerivedData() {
+    // prepareDerivedData() {
 
-        const actorData = this.system;
+    //     const actorData = this.system;
 
-        // Add possibility for switch Stament on the different Actor Types
+    //     // Add possibility for switch Stament on the different Actor Types
 
-        this._preparePlayerCharacterData(actorData);
-    }
+    //     this._preparePlayerCharacterData(actorData);
+    // }
 
     _preparePlayerCharacterData(actorData) {
 

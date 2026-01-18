@@ -69,14 +69,14 @@ export class PlayerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         return context;
     }
 
-	    /** @override */
-    _onRender(context, options) {
+	//     /** @override */
+    // _onRender(context, options) {
 
-        const tabs = new foundry.applications.ux.Tabs({navSelector: ".tabs", contentSelector: ".content", initial: "tab1"});
-        tabs.bind(this.element);
+    //     const tabs = new foundry.applications.ux.Tabs({navSelector: ".tabs", contentSelector: ".content", initial: "tab1"});
+    //     tabs.bind(this.element);
 
-        const tabs2 = new foundry.applications.ux.Tabs({navSelector: ".tabs2", contentSelector: ".content2", initial: "tab2-1"});
-        tabs2.bind(this.element);
-				console.log(this.actor);
-    }
+    //     const tabs2 = new foundry.applications.ux.Tabs({navSelector: ".tabs2", contentSelector: ".content2", initial: "tab2-1"});
+    //     tabs2.bind(this.element);
+	// 			console.log(this.actor);
+    // }
 };

@@ -1,9 +1,8 @@
-const { HTMLField, NumberField, SchemaField, StringField } = foundry.data.fields;
+const {
+  ArrayField, BooleanField, HTMLField, IntegerSortField, NumberField, SchemaField, SetField, StringField
+} = foundry.data.fields;
 
-/* -------------------------------------------- */
-/*  Actor Models                                */
-/* -------------------------------------------- */
-
+// Base actor model
 export class ActorDataModel extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     // Actor datamodel setup, all sheets should have this
@@ -28,8 +27,9 @@ export class ActorDataModel extends foundry.abstract.TypeDataModel {
           max: new NumberField({ required: true, integer: true, min: 0, initial: 100 })
         }),
       }),     
+      testfield: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 25 }),
         /// characteristics
-      characteristics: new SchemaField({
+      charNumbers: new SchemaField({
         weaponskill: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 25 }),
         ballisticskill: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 25 }),
         strength: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 25 }),
@@ -42,12 +42,6 @@ export class ActorDataModel extends foundry.abstract.TypeDataModel {
       }),
         /// skills
       skillsValue: new SchemaField({
-        acrobatics: new StringField({
-          required: true,
-          blank: false,
-          options: ["untrained", "+10%", "+20%"],
-          initial: "untrained"
-        }),
         acrobatics: new StringField({
           required: true,
           blank: false,
