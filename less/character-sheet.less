@@ -4,8 +4,17 @@
     // CSS for entire sheet
     font-family: "Garamond";
     font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
     
-    // CSS for header
+
+        // CSS for header and content
+    .sheet-header {
+        order: 0;
+    }
+
     .character-image {
         float: left;
         width: 120px;
@@ -40,6 +49,11 @@
 
     // .char-desc-box {
     // }
+
+    // content-box, containing all non-header tabs
+    .content-box {
+        order: 0;
+    }
 
     // Origins
     .origin-box {

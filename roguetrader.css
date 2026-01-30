@@ -1,6 +1,13 @@
 .rogue-trader.sheet.player-sheet {
   font-family: "Garamond";
   font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.rogue-trader.sheet.player-sheet .sheet-header {
+  order: 0;
 }
 .rogue-trader.sheet.player-sheet .character-image {
   float: left;
@@ -29,6 +36,9 @@
 .rogue-trader.sheet.player-sheet .player-name-box {
   float: right;
   width: 250px;
+}
+.rogue-trader.sheet.player-sheet .content-box {
+  order: 0;
 }
 .rogue-trader.sheet.player-sheet .origin-box {
   display: grid;
