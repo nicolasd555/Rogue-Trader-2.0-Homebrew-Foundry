@@ -11,23 +11,13 @@ export class ActorDataModel extends foundry.abstract.TypeDataModel {
       description: new HTMLField(),
       resources: new SchemaField({
         /// basic info and resources
-        wounds: new SchemaField({
-          min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          value: new NumberField({ required: true, integer: true, min: 0, initial: 1 }),
-          max: new NumberField({ required: true, integer: true, min: 0, initial: 100 })
-        }),
-        damage: new SchemaField({
-          min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          value: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          max: new NumberField({ required: true, integer: true, min: 0, initial: 0 })
-        }),
-        fate: new SchemaField({
-          min: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
-          value: new NumberField({ required: true, integer: true, min: 0, initial: 1 }),
-          max: new NumberField({ required: true, integer: true, min: 0, initial: 100 })
-        }),
+        wounds: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
+        damage: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
+        fateCurrent: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
+        fateMax: new NumberField({ required: true, integer: true, min: 0, initial: 0 }),
       }),     
-      testfield: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 25 }),
+      insanity: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 0 }),
+      corruption: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 0 }),
         /// characteristics
       charNumbers: new SchemaField({
         weaponskill: new NumberField({ required: true, integer: true, min: 0, max: 100, initial: 25 }),

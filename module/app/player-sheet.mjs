@@ -26,7 +26,7 @@ export class PlayerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
 	static PARTS = {
 		header: { template: "systems/rogue-trader-2/templates/charactersheet/header.hbs" },
-		content: { template: "systems/rogue-trader-2/templates/charactersheet/sheet.hbs" }
+		content: { template: "systems/rogue-trader-2/templates/charactersheet/player/sheet.hbs" }
 	};
 
 	get title() {
