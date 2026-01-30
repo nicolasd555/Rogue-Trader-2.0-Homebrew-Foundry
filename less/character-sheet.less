@@ -13,13 +13,15 @@
         // CSS for header and content
     .sheet-header {
         order: 0;
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
     }
 
     .character-image {
-        float: left;
+        order: 1;
         width: 120px;
         height: 150px;
-        position: relative;
         margin-left: 8px;
         margin-top: 10px;
         margin-bottom: 3px;
@@ -27,7 +29,7 @@
     };
 
     .char-info-box {
-        float: left;
+        order: 2;
         width: 69%;
         height: 100%;
         padding-top: 20px;
@@ -35,38 +37,50 @@
         margin-left: 8px;
         margin-top: 10px;
         margin-bottom: 3px;
+        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
     };
     
     .char-name-box {
-        float: left;
+        order: 1;
         width:250px;
+        padding-right: 10px;
     };
 
     .player-name-box {
-        float: right;
+        order: 2;
         width: 250px;
     };
 
-    // .char-desc-box {
-    // }
+    .char-desc-box {
+        order: 3;
+        width: 500px;
+    }
 
     // content-box, containing all non-header tabs
     .content-box {
         order: 0;
     }
 
+    //content tab one
+    .content-tab-one {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+    }
+
     // Origins
     .origin-box {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        grid-column-gap: 5px;
-        grid-row-gap: 5px; 
+        order: 2;
         width:300px;
         height:250px;
-        position:relative;
-        float: right; 
-        margin-right: 20px;
+        margin-left: 8px;
+        margin-top: 10px;
+        margin-bottom: 3px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
     };
 
     .origin-box input {
@@ -74,18 +88,48 @@
         padding: 8px;
         box-sizing: border-box;
     }
+
+    .origin-field {
+        margin-left: 8px;
+        margin-bottom: 3px;
+        width: 180px;
+    }
+
+    .career-box {
+        order: 1;
+    }
+
+    .homeworld-box {
+        order: 2;
+    }
+
+    .birthright-box {
+        order: 3;
+    }
+
+    .lineage-box {
+        order: 4;
+    }
+    
+    .lure-of-the-void-box {
+        order: 5;
+    }
+
+    .trials-and-travails-box {
+        order: 6;
+    }
+
+    .motivation-box {
+        order: 7;
+    }
+
     //characteristics
-
     .characteristics-box {
-        float: left;
-        position: relative;
+        order: 1;
         width: 300px;
-        overflow: auto;
-
         margin-left: 8px;
         margin-top: 10px;
         margin-bottom: 3px;
-        
     }
     // .characteristics-box.character-image {
         
