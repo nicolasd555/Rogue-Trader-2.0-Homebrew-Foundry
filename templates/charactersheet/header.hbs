@@ -1,5 +1,5 @@
 <header class="sheet-header">
-	<div class="character-image">
+	<div class="{{this._id}}.character-image">
 		<img
 			src="{{actor.img}}"
 			data-action="editImage"
@@ -11,7 +11,7 @@
 	</div>
 	<div class="char-info-box">
 		<div class="char-name-box">
-			<label for="characterName">
+			<label for="{{this._id}}.characterName">
 				Character Name
 			</label>
 			<input
@@ -22,7 +22,7 @@
 			/>
 		</div>
 		<div class="player-name-box">
-			<label for="playerName">
+			<label for="{{this._id}}.playerName">
 				Player Name
 			</label>
 			<input
@@ -34,7 +34,7 @@
 		</div>
 
 	<div class="char-desc-box">
-		<label for="description">
+		<label for="{{this._id}}.description">
 			Description
 		</label>
 		<input
