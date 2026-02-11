@@ -61,7 +61,7 @@ export class PlayerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
             config: CONFIG.NETHER,
             isGM: baseData.user.isGM,
             effects: baseData.document.effects,
-			characteristics: baseData.document.system.characteristics,
+			charBonuses: baseData.document.system.charBonus,
         };	
         
 		// this._source.name = this.actor.characterName;
@@ -70,13 +70,13 @@ export class PlayerSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     }
 
 	    /** @override */
-    // _onRender(context, options) {
+    _onRender(context, options) {
 
-    //     const tabs = new foundry.applications.ux.Tabs({navSelector: ".tabs", contentSelector: ".content", initial: "tab1"});
-    //     tabs.bind(this.element);
+        const tabs = new foundry.applications.ux.Tabs({navSelector: ".tabs", contentSelector: ".content", initial: "tab1"});
+        tabs.bind(this.element);
 
-    //     const tabs2 = new foundry.applications.ux.Tabs({navSelector: ".tabs2", contentSelector: ".content2", initial: "tab2-1"});
-    //     tabs2.bind(this.element);
-	// 			console.log(this.actor);
-    // }
+        const tabs2 = new foundry.applications.ux.Tabs({navSelector: ".tabs2", contentSelector: ".content2", initial: "tab2-1"});
+        tabs2.bind(this.element);
+		console.log(this.actor);
+    }
 };

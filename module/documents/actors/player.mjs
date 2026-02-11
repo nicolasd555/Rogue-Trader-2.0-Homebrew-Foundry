@@ -9,26 +9,42 @@ export class RogueTraderActor extends Actor {
         super.prepareData();
     }
 
-    // prepareDerivedData() {
+    prepareDerivedData() {
+        super.prepareDerivedData();
 
-    //     const actorData = this.system;
+        const actorData = this.system;
 
-    //     // Add possibility for switch Stament on the different Actor Types
+        this._setDerivedCharacteristics(actorData);
+    }
 
-    //     this._preparePlayerCharacterData(actorData);
+    // create characteristic modifier fields & set + calculate characteristic bonuses
+    _setDerivedCharacteristics(actorData) {
+        // create arrays if they don't exist already
+        actorData.charBonus ??= {};
+        actorData.CharMods ??= {};
+
+        for (let [key, value] of Object.entries(actorData.charNumbers)) {
+            // Create individual modifier fields if they don't exist
+            actorData.CharMods[key] ??= 0;
+            // Calculate characteristic bonuses based on the characteristic's base value + any modifiers.
+            actorData.charBonus[key] = this.calculateCharacteristicBonus(value + actorData.CharMods[key]);
+        }
+    }
+
+    // _preparePlayerCharacterData(actorData) {
+
+    //     // Calculation of Base Character Values
+
+    //     this._setCharacterValues(actorData);
     // }
 
-    _preparePlayerCharacterData(actorData) {
+    // async _setCharacterValues(data) {
 
-        // Calculation of Base Character Values
-        this._setCharacterValues(actorData);
-    }
+    //     // Calculation of Values here!
+    //     const actorData = this.system;
 
-    async _setCharacterValues(data) {
 
-        // Calculation of Values here!
-
-    }
+    // }
 
     get characterName() {
         return this.system.characterName;
@@ -46,5 +62,9 @@ export class RogueTraderActor extends Actor {
         this.system.characterName = value;
     }
 
-    
+    // Calculate characteristic bonus, include modifiers later
+    calculateCharacteristicBonus(value) {
+        var number = value/10;
+        return number - number % 1;
+    }
 }
