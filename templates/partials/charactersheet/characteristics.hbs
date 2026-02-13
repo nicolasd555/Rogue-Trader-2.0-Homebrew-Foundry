@@ -1,92 +1,26 @@
-<section class="characteristics-box">
-    <div class="weaponskill-box">
-        <label for="{{this._id}}.Weaponskill">
-			Weaponskill
-		</label>
-			<input
-		type="number"
-		name="system.charNumbers.weaponskill"
-		value="{{system.charNumbers.weaponskill}}"
-		/>
-    </div>
-    <div class="ballisticskill-box">
-            <label for="{{this._id}}.ballisticskill">
-                Ballisticskill
-            </label>
-                <input
-            type="number"
-            name="system.charNumbers.ballisticskill"
-            value="{{system.charNumbers.ballisticskill}}"
-        />
-    </div>
-    <div class="strength-box">
-                <label for="{{this._id}}.strength">
-                    Strength
+<section class="characteristics-section">
+        <div class="char-box">
+            <div class="char-name"> Characteristic </div>
+            <div class="char-input"> Score </div>
+            <div class="char-bonus"> Bonus </div>
+            <div class="char-modifier"> Modifier </div>
+        </div>
+    {{#each system.charNumbers as | characteristic |}}
+        <div class="char-box">
+            <div class="char-name">
+                <label for="{{this._id}}.{{@key}}">
+                    {{@key}}
                 </label>
+            </div>
+            <div class="char-input">
                     <input
                 type="number"
-                name="system.charNumbers.strength"
-                value="{{system.charNumbers.strength}}"
-            />
-    </div>
-    <div class="toughness-box">
-                <label for="{{this._id}}.toughness">
-                    Toughness
-                </label>
-                    <input
-                type="number"
-                name="system.charNumbers.toughness"
-                value="{{system.charNumbers.toughness}}"
-            />
-    </div>
-    <div class="agility-box">
-                <label for="{{this._id}}.agility">
-                    Agility
-                </label>
-                    <input
-                type="number"
-                name="system.charNumbers.agility"
-                value="{{system.charNumbers.agility}}"
-            />
-    </div>
-    <div class="intelligence-box">
-                <label for="{{this._id}}.intelligence">
-                    Intelligence
-                </label>
-                    <input
-                type="number"
-                name="system.charNumbers.intelligence"
-                value="{{system.charNumbers.intelligence}}"
-            />
-    </div>
-    <div class="perception-box">
-                <label for="{{this._id}}.perception">
-                    Perception
-                </label>
-                    <input
-                type="number"
-                name="system.charNumbers.perception"
-                value="{{system.charNumbers.perception}}"
-            />
-    </div>
-    <div class="willpower-box">
-                <label for="{{this._id}}.willpower">
-                    Willpower
-                </label>
-                    <input
-                type="number"
-                name="system.charNumbers.willpower"
-                value="{{system.charNumbers.willpower}}"
-            />
-    </div>
-    <div class="fellowship-box">
-                <label for="{{this._id}}.fellowship">
-                    Fellowship
-                </label>
-                    <input
-                type="number"
-                name="system.charNumbers.fellowship"
-                value="{{system.charNumbers.fellowship}}"
-            />
-    </div>
+                name="system.charNumbers.{{@key}}"
+                value="{{characteristic}}"
+                />
+            </div>
+            <div class="char-bonus">{{../system.charBonus.weaponskill}}</div>
+            <div class="char-modifier">{{../system.charMods.weaponskill}}</div>
+        </div>
+    {{/each}}
 </section>

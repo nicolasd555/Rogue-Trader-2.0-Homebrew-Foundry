@@ -21,13 +21,13 @@ export class RogueTraderActor extends Actor {
     _setDerivedCharacteristics(actorData) {
         // create arrays if they don't exist already
         actorData.charBonus ??= {};
-        actorData.CharMods ??= {};
+        actorData.charMods ??= {};
 
         for (let [key, value] of Object.entries(actorData.charNumbers)) {
             // Create individual modifier fields if they don't exist
-            actorData.CharMods[key] ??= 0;
+            actorData.charMods[key] ??= 0;
             // Calculate characteristic bonuses based on the characteristic's base value + any modifiers.
-            actorData.charBonus[key] = this.calculateCharacteristicBonus(value + actorData.CharMods[key]);
+            actorData.charBonus[key] = this.calculateCharacteristicBonus(value + actorData.charMods[key]);
         }
     }
 

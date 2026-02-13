@@ -124,17 +124,42 @@
     }
 
     //characteristics
-    .characteristics-box {
+    .characteristics-section {
         order: 1;
         width: 300px;
         margin-left: 8px;
         margin-top: 10px;
         margin-bottom: 3px;
     }
-    // .characteristics-box.character-image {
-        
-    //     background-color: antiquewhite;
-    //     width: 60px;
-    //     height: 60px;
-    // }
+    
+    .char-box {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: stretch;
+        justify-content: space-evenly;
+    }
+
+    .char-name {
+        order: 1;
+        width: 100px;
+        text-align: center;
+    }
+
+    .char-input {
+        order: 2;
+        width: 35px;
+        text-align: center;
+    }
+
+    .char-bonus {
+        order: 3;
+        width: 35px;
+        text-align: center;
+    }
+    
+    .char-modifier {
+        order: 4;
+        width: 35px;
+        text-align: center;
+    }
 }
