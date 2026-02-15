@@ -2,8 +2,8 @@
         <div class="char-box">
             <div class="char-name"> Characteristic </div>
             <div class="char-input"> Score </div>
-            <div class="char-bonus"> Bonus </div>
             <div class="char-modifier"> Modifier </div>
+            <div class="char-bonus"> Bonus </div>
         </div>
     {{#each system.charNumbers as | characteristic |}}
         <div class="char-box">
@@ -19,8 +19,8 @@
                 value="{{characteristic}}"
                 />
             </div>
-            <div class="char-bonus">{{../system.charBonus.weaponskill}}</div>
-            <div class="char-modifier">{{../system.charMods.weaponskill}}</div>
+            <div class="char-modifier">{{lookup ../system.charMods @key}}</div>
+            <div class="char-bonus">{{lookup ../system.charBonus @key}}</div>
         </div>
     {{/each}}
 </section>

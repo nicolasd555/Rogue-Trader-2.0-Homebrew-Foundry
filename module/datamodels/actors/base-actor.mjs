@@ -386,4 +386,11 @@ export class ActorDataModel extends foundry.abstract.TypeDataModel {
       }),
     };
   }
+
+    static migrateData(source) {
+    // Migrate wounds and damage
+    if ( !Number.isNumeric(source.resources.wounds) ) source.resources.wounds = 0;
+    if ( !Number.isNumeric(source.resources.damage) ) source.resources.damage = 0;
+    return super.migrateData(source);
+  }
 }
