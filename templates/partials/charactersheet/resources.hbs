@@ -1,0 +1,93 @@
+<section class="resources-section">
+    <div class="health-box">
+        <div class="wounds-box">
+            <div class="wounds-label">
+                <label for="{{this._id}}.wounds">
+                    Wounds
+                </label>
+            </div>
+            <div class="wounds-input">
+                <input
+                type="number"
+                name="system.resources.wounds"
+                value="{{system.resources.wounds}}"
+                />
+            </div>
+        </div>
+        <div class="damage-box">
+            <div class="damage-label">
+                <label for="{{this._id}}.damage">
+                    Damage
+                </label>
+            </div>
+            <div class="damage-input">
+                <input
+                type="number"
+                name="system.resources.damage"
+                value="{{system.resources.damage}}"
+                />
+            </div>
+        </div>
+    </div>
+    <div class="fate-box">
+        <div class="fate-title">Fate Points</div>
+        <div class="fate-current-box">
+            <div class="fate-current-label">
+                <label for="{{this._id}}.fate-current">
+                    Current
+                </label>
+            </div>
+            <div class="fate-current-input">
+                <input
+                type="number"
+                name="system.resources.fateCurrent"
+                value="{{system.resources.fateCurrent}}"
+                />
+            </div>
+        </div>
+        <div class="fate-max-box">
+            <div class="fate-max-label">
+                <label for="{{this._id}}.fate-max">
+                    Total
+                </label>
+            </div>
+            <div class="fate-max-input">
+                <input
+                type="number"
+                name="system.resources.fateMax"
+                value="{{system.resources.fateMax}}"
+                />
+            </div>
+        </div>
+    </div>
+    <div class="profit-box">
+        <div class="profit-label">
+            <label for="{{this._id}}.profitFactor">
+                Profit Factor
+            </label>
+        </div>
+        <div class="profit-input">
+            <input
+            type="number"
+            name="system.profitFactor"
+            value="{{system.profitFactor}}"
+            />
+        </div>
+    </div>
+    <div class="movement-box">
+        <div class="movement-title">Movement</div>
+        <div class="movement-types">
+            {{#each system.movement as | movement |}}
+            <div class="movement-{{@key}}">
+                <div class="movement-title-{{@key}}">{{@key}}</div>
+                <div class="movement-{{@key}}-value">
+                    {{movement}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="weight-box">
+        
+    </div>
+</section>

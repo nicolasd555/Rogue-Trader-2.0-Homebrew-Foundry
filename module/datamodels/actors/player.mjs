@@ -20,6 +20,13 @@ export class PlayerDataModel extends ActorDataModel {
       }),
       rank: new NumberField({ required: true, integer: true, min: 1, initial: 1}),
       experience: new NumberField({ required: true, integer: true, min: 5000, initial: 5000}),
+      profitFactor: new NumberField({ required: true, integer: true, min: 0, initial: 0}),
     };
   }
+
+  //   static migrateData(source) {
+  //   // Migrate profitFactor
+  //   source.system.profitFactor ??= 0;
+  //   return super.migrateData(source);
+  // }
 }

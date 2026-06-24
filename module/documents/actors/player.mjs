@@ -14,7 +14,11 @@ export class RogueTraderActor extends Actor {
 
         const actorData = this.system;
 
+        // Set derived characteristics
         this._setDerivedCharacteristics(actorData);
+
+        // Set movement values
+        this._setMovementValues(actorData);
     }
 
     // create characteristic modifier fields & set + calculate characteristic bonuses
@@ -31,20 +35,32 @@ export class RogueTraderActor extends Actor {
         }
     }
 
-    // _preparePlayerCharacterData(actorData) {
+    // Calculate and set movement values as fields
+    _setMovementValues(actorData) {
+        const agilityBonus = this.calculateCharacteristicBonus(actorData.charNumbers.agility);
 
-    //     // Calculation of Base Character Values
+        // Ensure all movement fields are set.
+        actorData.movement ??= {};
+        actorData.movement.half ??= 0;
+        actorData.movement.full ??= 0;
+        actorData.movement.charge ??= 0;
+        actorData.movement.run ??= 0;
 
-    //     this._setCharacterValues(actorData);
-    // }
+        const movement = actorData.movement;
 
-    // async _setCharacterValues(data) {
+        // Half movement is normally equal to agility bonus, but if agility bonus is <1 it has to be set manually to 0.5
+        if (agilityBonus !== 0) {
+            movement.half = agilityBonus;
+        } else {
+            movement.half = 0.5;
+        }
 
-    //     // Calculation of Values here!
-    //     const actorData = this.system;
-
-
-    // }
+        // Calculate values for remaining movement types.
+        const half = movement.half;
+        movement.full = half * 2;
+        movement.charge = half * 3;
+        movement.run = half * 6;
+    }
 
     get characterName() {
         return this.system.characterName;

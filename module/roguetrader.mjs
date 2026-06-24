@@ -73,6 +73,7 @@ function preloadHandlebarsTemplates() {
         "systems/rogue-trader-2/templates/partials/charactersheet/player/origin.hbs",
         "systems/rogue-trader-2/templates/partials/charactersheet/characteristics.hbs",
         "systems/rogue-trader-2/templates/partials/charactersheet/npc/header.hbs",
+        "systems/rogue-trader-2/templates/partials/charactersheet/resources.hbs",
     ];
     
     return foundry.applications.handlebars.loadTemplates(templatePaths);

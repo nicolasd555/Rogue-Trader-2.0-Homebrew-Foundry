@@ -68,6 +68,19 @@
         display: flex;
         flex-direction: row;
         align-items: stretch;
+        flex-wrap: wrap;
+    }
+
+    .sheet-characteristic {
+        order: 1;
+    }
+
+    .sheet-origin {
+        order: 2;
+    }
+
+    .sheet-resources {
+        order: 3;
     }
 
     // Origins
@@ -151,15 +164,113 @@
         text-align: center;
     }
 
-    .char-bonus {
+    .char-modifier {
         order: 3;
+        width: 40px;
+        text-align: center;
+    }
+
+    .char-bonus {
+        order: 4;
         width: 35px;
         text-align: center;
     }
     
-    .char-modifier {
-        order: 4;
-        width: 35px;
+    .resources-section {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .health-box {
+        order: 1;
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    .wounds-box {
+        order: 1;
+        width: 50px;
         text-align: center;
+        margin-right: 10px;
+    }
+
+    .damage-box {
+        order: 2;
+        width: 50px;
+        text-align: center;
+    }
+
+    .fate-box {
+        order: 3;
+        display: flex;
+        flex-flow: column wrap;
+        margin-right: 10px;
+    }
+
+    .fate-current-box {
+        width: 50px;
+        text-align: center;
+        order: 1;
+    }
+
+    .fate-max-box {
+        width: 50px;
+        text-align: center;
+        order: 2;
+    }
+
+    .profit-box {
+        order: 4;
+        margin-right: 10px;
+    }
+
+    .profit-input {
+        width: 50px;
+    }
+
+    .movement-box {
+        order: 5;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: stretch;
+        justify-content: space-evenly;
+
+    }
+
+    .movement-title {
+        order: 1;
+        text-align: center;
+    }
+
+    .movement-types {
+        order: 2;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: stretch;
+        justify-content: space-evenly;
+        text-align: center;
+    }
+
+    .movement-half {
+        margin-right: 5px;
+        order: 1;
+    }
+
+    .movement-full {
+        margin-right: 5px;
+        order: 2;
+    }
+
+    .movement-charge {
+        margin-right: 5px;
+        order: 3;
+    }
+
+    .movement-run {
+        order: 4;
+    }
+
+    .weight-box {
+        order: 6;
     }
 }

@@ -54,6 +54,16 @@
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  flex-wrap: wrap;
+}
+.rogue-trader.sheet.player-sheet .sheet-characteristic {
+  order: 1;
+}
+.rogue-trader.sheet.player-sheet .sheet-origin {
+  order: 2;
+}
+.rogue-trader.sheet.player-sheet .sheet-resources {
+  order: 3;
 }
 .rogue-trader.sheet.player-sheet .origin-box {
   order: 2;
@@ -120,13 +130,93 @@
   width: 35px;
   text-align: center;
 }
-.rogue-trader.sheet.player-sheet .char-bonus {
+.rogue-trader.sheet.player-sheet .char-modifier {
   order: 3;
-  width: 35px;
+  width: 40px;
   text-align: center;
 }
-.rogue-trader.sheet.player-sheet .char-modifier {
+.rogue-trader.sheet.player-sheet .char-bonus {
   order: 4;
   width: 35px;
   text-align: center;
+}
+.rogue-trader.sheet.player-sheet .resources-section {
+  display: flex;
+  flex-flow: row wrap;
+}
+.rogue-trader.sheet.player-sheet .health-box {
+  order: 1;
+  display: flex;
+  flex-flow: column wrap;
+}
+.rogue-trader.sheet.player-sheet .wounds-box {
+  order: 1;
+  width: 50px;
+  text-align: center;
+  margin-right: 10px;
+}
+.rogue-trader.sheet.player-sheet .damage-box {
+  order: 2;
+  width: 50px;
+  text-align: center;
+}
+.rogue-trader.sheet.player-sheet .fate-box {
+  order: 3;
+  display: flex;
+  flex-flow: column wrap;
+  margin-right: 10px;
+}
+.rogue-trader.sheet.player-sheet .fate-current-box {
+  width: 50px;
+  text-align: center;
+  order: 1;
+}
+.rogue-trader.sheet.player-sheet .fate-max-box {
+  width: 50px;
+  text-align: center;
+  order: 2;
+}
+.rogue-trader.sheet.player-sheet .profit-box {
+  order: 4;
+  margin-right: 10px;
+}
+.rogue-trader.sheet.player-sheet .profit-input {
+  width: 50px;
+}
+.rogue-trader.sheet.player-sheet .movement-box {
+  order: 5;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: stretch;
+  justify-content: space-evenly;
+}
+.rogue-trader.sheet.player-sheet .movement-title {
+  order: 1;
+  text-align: center;
+}
+.rogue-trader.sheet.player-sheet .movement-types {
+  order: 2;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.rogue-trader.sheet.player-sheet .movement-half {
+  margin-right: 5px;
+  order: 1;
+}
+.rogue-trader.sheet.player-sheet .movement-full {
+  margin-right: 5px;
+  order: 2;
+}
+.rogue-trader.sheet.player-sheet .movement-charge {
+  margin-right: 5px;
+  order: 3;
+}
+.rogue-trader.sheet.player-sheet .movement-run {
+  order: 4;
+}
+.rogue-trader.sheet.player-sheet .weight-box {
+  order: 6;
 }
